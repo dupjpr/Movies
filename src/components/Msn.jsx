@@ -1,5 +1,5 @@
 const Msn = () => {
-    return ( <div>Welcome search your movie</div> );
+    return ( <section className='section'>Welcome search your movie</section> );
 }
  
 export default Msn;

@@ -17,20 +17,20 @@ const Search = () => {
     };
 
     const handleSubmit = (e, element) => {
-        e.preventDefault()
-        setKeyWord(userWord);
-        element.value='';
+        if (userWord !== '') {
+            e.preventDefault()
+            setKeyWord(userWord);
+            element.value = '';
+        }
     };
 
     return (
-        <div>
-
-            <form onSubmit={(e) => handleSubmit(e, element)} >
-                <input onChange={(e) => handleChange(e)} type="text" />
-                <button type="submit">Buscar</button>
+        <div className='search'>
+            <form className='search__search-form' onSubmit={(e) => handleSubmit(e, element)} >
+                <input className='search__search-form__input' onChange={(e) => handleChange(e)} type="text" />
+                <button className='search__search-form__button' type="submit"><i className="fas fa-search"></i></button>
             </form>
         </div>
-
     );
 }
 

@@ -4,7 +4,8 @@ import Movies from './components/Movies';
 import Search from './components/Search';
 import Msn from './components/Msn';
 import { AppContext } from "../src/contexts/AppContext.js";
-import { BrouserRouter as Router, Route, Switch } from "react-router-dom";
+
+import '../src/style.scss';
 
 function App() {
 
