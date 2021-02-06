@@ -17,8 +17,7 @@ const Movie = ({ movieID, movieState, setMovieState }) => {
     console.log(movieInfo);
 
     return (
-        <div>
-            <div onClick={() => handleClick()}>X</div>
+        <div  className='section-movies-pop'>
             <div>{movieInfo.Title}</div>
             <div>{movieID}</div>
         </div>

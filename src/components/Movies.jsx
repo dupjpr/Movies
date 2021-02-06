@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 
 import { AppContext } from '../contexts/AppContext.js';
-import Movie from '../components/Movie.jsx';
+
+import ShowMovies from './ShowMovies.jsx';
+import NotFoundMsn from './NotFoundMsn.jsx';
 
 
 const Movies = () => {
@@ -10,36 +12,20 @@ const Movies = () => {
 
     const { keyWord } = dataContext;
 
-    const [movies, setMovies] = useState([]);
-    const [movieState, setMovieState] = useState(false);
-    const [movieID, setMovieID] = useState('');
+    const [searchMovies, setMovies] = useState([]);
+    
 
     useEffect(() => {
         fetch(`http://www.omdbapi.com/?s=${keyWord}&apikey=f1960c26`)
             .then(response => response.json())
-            .then(data => {
-                data.Response === 'True' ? setMovies(data.Search) : setMovies([{ Title: 'Sorry there are no results. Try again with another search.', imdbID: '01' }])
-            });
+            .then(data => setMovies({ check: data.Response, movies: data.Search }));
     }, [keyWord]);
 
-    console.log(movies);
-
-    const handleClick = (e, movieID) => {
-        console.log('leyendo..');
-        setMovieState(!movieState);
-        setMovieID(movieID);
-    }
+    console.log(searchMovies);
+  
 
     return (
-        <div className='section'>
-            {movies.map((movie) => (
-                <div key={movie.imdbID}>
-                    <div>{movie.Title}</div>
-                    <img onClick={(e) => handleClick(e, movie.imdbID)} src={movie.Poster} />
-                </div>
-            ))}
-            {movieState ? <Movie movieID={movieID} movieState={movieState} setMovieState={setMovieState} /> : null}
-        </div>
+        searchMovies.check === 'True' ? < ShowMovies searchMovies={searchMovies} /> : <NotFoundMsn />
     );
 }
 

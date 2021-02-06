@@ -1,5 +1,8 @@
 const Msn = () => {
-    return ( <section className='section'>Welcome search your movie</section> );
+    return (
+        <section className='section-msn'>
+            <h2>Welcome search your movie</h2>
+        </section>);
 }
- 
+
 export default Msn;
