@@ -12,20 +12,42 @@ const Movies = () => {
 
     const { keyWord } = dataContext;
 
-    const [searchMovies, setMovies] = useState([]);
-    
+    const [searchMovies, setMovies] = useState('');
+    const [idMovies, setIdMovies] = useState([]);
+    const [infoMovies, setInfoMovies] = useState([]);
 
     useEffect(() => {
         fetch(`http://www.omdbapi.com/?s=${keyWord}&apikey=f1960c26`)
             .then(response => response.json())
-            .then(data => setMovies({ check: data.Response, movies: data.Search }));
+            .then(data => {
+                if (data.Response === 'True') {
+                    const idMovies = data.Search.map((movie) => movie.imdbID)
+                    setIdMovies(idMovies)
+                }
+                setMovies({ check: data.Response, movies: data.Search })
+            });
     }, [keyWord]);
 
-    console.log(searchMovies);
-  
+    useEffect(() => {
+        const info = [];
+        idMovies.map((id) => {
+            fetch(`http://www.omdbapi.com/?i=${id}&apikey=f1960c26`)
+                .then(response => response.json())
+                .then(data => {
+                    info.push(data);
+                });
+        })
+        setInfoMovies(info)
+    }, [idMovies]);
 
+    console.log(infoMovies);
+    console.log(searchMovies);
     return (
-        searchMovies.check === 'True' ? < ShowMovies searchMovies={searchMovies} /> : <NotFoundMsn />
+
+        searchMovies.check === 'True' ? < ShowMovies
+            searchMovies={searchMovies}
+            infoMovies={infoMovies}
+        /> : <NotFoundMsn />
     );
 }
 

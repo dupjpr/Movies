@@ -1,7 +1,82 @@
-.section-msn{
+.section-msn {
+    position: relative;
     width: 100%;
-    height: 80%;
+    height: 88%;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
     text-transform: uppercase;
-    text-align: center;
-    margin-top: 15%;
+    .section-msn__initialMsn {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        position: absolute;
+        top: 30%;
+        right: 0;
+        z-index: 1;
+        color: #c8ccbb;
+        font-size: 2.5rem;
+        -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    .section-msn__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.section-msn::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: color-change-2x 4s linear infinite alternate both;
+    animation: color-change-2x 4s linear infinite alternate both;
+}
+
+
+// MSN animation
+@-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+// BG Animation
+@-webkit-keyframes color-change-2x {
+    0% {
+        background: #081314a8;
+    }
+    100% {
+        background: rgba(0, 0, 0, 0.616);
+    }
+}
+@keyframes color-change-2x {
+    0% {
+        background: #10191a8a;
+    }
+    100% {
+        background: rgba(0, 0, 0, 0.651);
+    }
 }

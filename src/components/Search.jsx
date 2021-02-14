@@ -26,9 +26,20 @@ const Search = () => {
 
     return (
         <section className='search'>
-            <form className='search__search-form' onSubmit={(e) => handleSubmit(e, element)} >
-                <input className='search__search-form__input' onChange={(e) => handleChange(e)} type="text" />
-                <button className='search__search-form__button' type="submit"><i className="fas fa-search"></i></button>
+            <form className='search__search-form' 
+            onSubmit={(e) => handleSubmit(e, element)} 
+            >
+                <input
+                    className='search__search-form__input'
+                    onChange={(e) => handleChange(e)}
+                    type="text"
+                    placeholder='Search movies'
+                />
+                <button
+                    className='search__search-form__button'
+                    type="submit">
+                    <i className="fas fa-search"></i>
+                </button>
             </form>
         </section>
     );
