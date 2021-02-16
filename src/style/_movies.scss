@@ -11,7 +11,7 @@
     justify-content: center;
     align-content: center;
     background-color: $bgColor;
-
+    
     .section-movies__movie {
         position: relative;
         width: 100%;
@@ -97,4 +97,5 @@
     .section-movies__movie:hover .section-movies__movie__tooltip {
         visibility: visible;
     }
+
 }

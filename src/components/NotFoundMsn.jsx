@@ -1,7 +1,8 @@
 const NotFoundMsn = () => {
-    return ( 
-        <h2>Sorry there are no results. Try again with another search.</h2>
-     );
+  
+    return (
+       <h2 className='error-msn'>sorry there are not results. Try again with other search!!!</h2>
+    );
 }
- 
+
 export default NotFoundMsn;

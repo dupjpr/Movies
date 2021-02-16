@@ -26,8 +26,8 @@ const Search = () => {
 
     return (
         <section className='search'>
-            <form className='search__search-form' 
-            onSubmit={(e) => handleSubmit(e, element)} 
+            <form className='search__search-form'
+                onSubmit={(e) => handleSubmit(e, element)}
             >
                 <input
                     className='search__search-form__input'

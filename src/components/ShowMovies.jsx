@@ -1,10 +1,10 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState } from 'react';
 
 const ShowMovies = ({ searchMovies, infoMovies }) => {
 
     const [movieInfo, setMovieInfo] = useState({});
 
-    const { check, movies } = searchMovies;
+    const { movies } = searchMovies;
 
     const handleOnMouse = (e, movieID) => {
         console.log('leyendo..', movieID);
@@ -23,7 +23,7 @@ const ShowMovies = ({ searchMovies, infoMovies }) => {
                             <div className="section-movies__movie__tooltip__Runtime">{movieInfo.Runtime}</div>
                             <div className="section-movies__movie__tooltip__Year">{movieInfo.Year}</div>
                         </div>
-                        <p className="section-movies__movie__tooltip__Plot">{movieInfo.Plot}</p>
+                        <p className="section-movies__movie__tooltip__Plot">{movieInfo.Plot === 'N/A' ? 'without register' : movieInfo.Plot}</p>
                         <div className="section-movies__movie__tooltip__Director"><strong>Director:</strong> {movieInfo.Director}</div>
                         <div className="section-movies__movie__tooltip__Genre"><strong>Genre:</strong> {movieInfo.Genre}</div>
                         <div className="section-movies__movie__tooltip__Actors"><strong>Actors:</strong> {movieInfo.Actors}</div>
@@ -32,15 +32,13 @@ const ShowMovies = ({ searchMovies, infoMovies }) => {
                         <img
                             className='section-movies__movie__image__img'
                             onMouseEnter={(e) => handleOnMouse(e, movie.imdbID)}
-                            src={movie.Poster}
+                            src={movie.Poster === 'N/A' ? 'https://media.istockphoto.com/vectors/movie-time-vector-illustration-cinema-poster-concept-on-red-round-vector-id911590226?k=6&m=911590226&s=612x612&w=0&h=u6vP2FnJG8Ib3O1xofOUeJ5NtHWrWdRnV-OSL8arBnk=' : movie.Poster}
+                            alt='movie-cover'
                         />
                     </div>
                     <strong><p className='section-movies__movie__title'>{movie.Title}</p></strong>
-
                 </div>
-
             ))}
-
         </section>
     );
 }
