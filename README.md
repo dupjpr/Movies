@@ -15,6 +15,7 @@ Specific information about each movie is displayed in a tooltip, when the user h
 ## Built With :atom:
 
 * React.
+* JavaScript.
 * Html.
 * Css.
 * Sass.
