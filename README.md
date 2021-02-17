@@ -6,7 +6,7 @@ https://dupjpr.github.io/Movies/
 
 ## Description :notebook_with_decorative_cover:
 
-This application is a movie search engine. The first part of the page is a landing page where the user can type a keyword to search for some movies related to that word.
+This application is a movie search engine :movie_camera:. The first part of the page is a landing page where the user can type a keyword to search for some movies related to that word.
 
 The result of the query is shown in another section. The API used only allows to see ten results per search. Below in the "Build with" section you will find the API link.
 
