@@ -2,7 +2,7 @@
 
 The result is available in the next link:
 
-https://dupjpr.github.io/Movies/{:target="_blank"}
+https://dupjpr.github.io/Movies/ {:target="_blank"}
 
 ## Description :notebook_with_decorative_cover:
 
